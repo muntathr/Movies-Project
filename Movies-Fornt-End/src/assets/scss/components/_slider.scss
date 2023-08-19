@@ -1,0 +1,935 @@
+//
+// slider
+//
+
+.slid {
+    &-slider {
+        overflow: hidden;
+        box-sizing: border-box;
+        position: relative;
+        height: 100vh;
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        &_slides {
+            position: relative;
+            height: 100%;
+            transition: transform 1s 1s / 3 * 2;
+        }
+    }
+
+    &-slide {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: translate3d(0, 0, 0);
+
+        &.m-before-sliding {
+            z-index: 2 !important;
+            transform: translate3d(100%, 0, 0);
+        }
+
+        &.m-active-slide {
+            z-index: 1;
+            transition: transform 1s 1s / 3 * 2 ease-in-out;
+            transform: translate3d(0, 0, 0);
+        }
+
+        &_inner {
+            position: relative;
+            height: 100%;
+            background-size: cover;
+            background-position: center top;
+            transform: translate3d(0, 0, 0);
+
+            .m-global-blending-active &,
+            .m-blend-bg-active & {
+                background-blend-mode: luminosity;
+            }
+
+            .m-before-sliding & {
+                transform: translate3d(-100%, 0, 0);
+            }
+
+            .m-active-slide & {
+                transition: transform 1s 1s / 3 * 2 ease-in-out;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        &_mask {
+            $activeDelay: 1s+1s / 3 * 2/3;
+            $xOffset: 200px;
+            $yOffset: 0;
+            $deg: 10deg;
+
+            overflow: hidden;
+            z-index: 1;
+            position: absolute;
+            right: 0;
+            top: 15%;
+            width: 67vh * 0.75;
+            height: 67vh;
+            margin-right: 1.5rem;
+            max-width: 1140px;
+            // This line basically does all magic with masking effect. Very simple and elegant. Webkit only atm.
+            clip-path: polygon(0 0,
+                    100% 0,
+                    100% 100%,
+                    0 100%,
+                    0 0,
+                    6vh 0,
+                    6vh 61vh,
+                    44vh 61vh,
+                    44vh 6vh,
+                    6vh 6vh);
+            transform-origin: 50% 0;
+            transition-timing-function: ease-in-out;
+            background-color: rgba($color-primary, 0.5);
+
+            .m-before-sliding & {
+                transform: rotate($deg * -1) translate3d($xOffset, 0, 0);
+                opacity: 0;
+            }
+
+            .m-active-slide & {
+                transition: transform 1s * 0.7 $activeDelay,
+                    opacity 1s * 0.7/2 $activeDelay;
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+
+            .m-previous-slide & {
+                transition: transform 1s * 0.7 1s / 3 * 2/2,
+                    opacity 1s * 0.7/2 1s * 0.7/2 + 1s / 3 * 2/2;
+                transform: rotate($deg) translate3d($xOffset * -1, 0, 0);
+                opacity: 0;
+            }
+
+            &-inner {
+                z-index: -1;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 100vw;
+                height: 100vh;
+                margin-left: -50vw;
+                margin-top: -50vh;
+                background-size: cover;
+                background-position: center center;
+                background-blend-mode: luminosity;
+                transform-origin: 50% (100vh - 67vh) / 2;
+                transition-timing-function: ease-in-out;
+
+                .m-before-sliding & {
+                    transform: translateY($yOffset) rotate($deg) translateX($xOffset * -1) translateZ(0);
+                }
+
+                .m-active-slide & {
+                    transition: transform 1s * 0.7 $activeDelay;
+                    transform: translateX(0);
+                }
+
+                .m-previous-slide & {
+                    transition: transform 1s * 0.7 1s / 3 * 2/2;
+                    transform: translateY($yOffset) rotate($deg * -1) translateX($xOffset) translateZ(0);
+                }
+            }
+        }
+
+        &_content {
+            z-index: 2;
+            position: absolute;
+            top: 34%;
+        }
+
+        @media (max-width: 991.98px) {
+            &_mask {
+                display: none !important;
+            }
+
+            &_content {
+                left: 0% !important;
+                width: 100%;
+
+                h2 {
+                    display: flex;
+                    justify-content: center;
+                    margin: auto;
+                }
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    margin: 1.5rem auto auto auto;
+                    align-items: center;
+                }
+            }
+        }
+
+        &_heading {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+
+            &-btn {
+                width: 160px;
+                height: 50px;
+                text-align: center;
+                font-size: 16px;
+                color: $color-white;
+                background-color: rgba($color-primary, 0.75);
+                transition: all 0.3s ease-in-out;
+                border-radius: 5px;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    width: 28px;
+                    height: 28px;
+                    fill: $color-white;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                .m-before-sliding & {
+                    height: 0px !important;
+                    opacity: 0 !important;
+                    overflow: hidden;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                .m-active-slide & {
+                    transition: transform 1s * 1.5 1s / 3 * 2 * 1.5;
+                    height: 54px !important;
+                    opacity: 1 !important;
+                    overflow: hidden;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                .m-previous-slide & {
+                    transition: transform 1s * 1.5;
+                    height: 0px !important;
+                    opacity: 0 !important;
+                    overflow: hidden;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &:hover {
+                    background-color: $color-primary;
+                    color: $color-white;
+
+                    svg {
+                        margin-left: 1rem !important;
+                        width: 28px;
+                        height: 28px;
+                        fill: $color-white;
+                        animation: scale-zoom 1s ease-in-out infinite;
+                    }
+                }
+            }
+
+            &-line {
+                overflow: hidden;
+                position: relative;
+                word-spacing: 10px;
+
+                .m-before-sliding & {
+                    transform: translateY(100%);
+                }
+
+                .m-active-slide & {
+                    transition: transform 1s * 1.5 1s / 3 * 2 * 1.5;
+                    transform: translateY(0);
+                }
+
+                .m-previous-slide & {
+                    transition: transform 1s * 1.5;
+                    transform: translateY(-100%);
+                }
+
+                span {
+                    display: block;
+
+                    .m-before-sliding & {
+                        transform: translateY(-100%);
+                    }
+
+                    .m-active-slide & {
+                        transition: transform 1s * 1.5 1s / 3 * 2 * 1.5;
+                        transform: translateY(0);
+                    }
+
+                    .m-previous-slide & {
+                        transition: transform 1s * 1.5;
+                        transform: translateY(100%);
+                    }
+                }
+            }
+
+            @media (max-width: 991.98px) {
+                &-line {
+                    text-align: center !important;
+                    padding: 0 !important;
+
+                    &:nth-child(2) {
+                        padding-left: 0 !important;
+                    }
+
+                    span {
+                        display: block;
+
+                        .m-before-sliding & {
+                            transform: translateY(-100%);
+                        }
+
+                        .m-active-slide & {
+                            transition: transform 1s * 1.5 1s / 3 * 2 * 1.5;
+                            transform: translateY(0);
+                        }
+
+                        .m-previous-slide & {
+                            transition: transform 1s * 1.5;
+                            transform: translateY(100%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &_des {
+            &-line {
+                overflow: hidden;
+                position: relative;
+                max-width: 600px;
+
+                .m-before-sliding & {
+                    transform: translateY(100%);
+                }
+
+                .m-active-slide & {
+                    transition: transform 1s * 1.5 1s / 3 * 2 * 1.5;
+                    transform: translateY(0);
+                }
+
+                .m-previous-slide & {
+                    transition: transform 1s * 1.5;
+                    transform: translateY(-100%);
+                }
+
+                span {
+                    display: block;
+
+                    .m-before-sliding & {
+                        transform: translateY(-100%);
+                    }
+
+                    .m-active-slide & {
+                        transition: transform 1s * 1.5 1s / 3 * 2 * 1.5;
+                        transform: translateY(0);
+                    }
+
+                    .m-previous-slide & {
+                        transition: transform 1s * 1.5;
+                        transform: translateY(100%);
+                    }
+                }
+            }
+
+            @media (max-width: 991.98px) {
+                &-line {
+                    text-align: center !important;
+                    padding: 0 !important;
+                    display: none !important;
+
+                    &:nth-child(2) {
+                        padding-left: 0 !important;
+                    }
+
+                    span {
+                        display: block;
+
+                        .m-before-sliding & {
+                            transform: translateY(-100%);
+                        }
+
+                        .m-active-slide & {
+                            transition: transform 1s * 1.5 1s / 3 * 2 * 1.5;
+                            transform: translateY(0);
+                        }
+
+                        .m-previous-slide & {
+                            transition: transform 1s * 1.5;
+                            transform: translateY(100%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &_action-btn {
+            $hoverAT: 0.3s;
+            $fontSize: 20px;
+            $vertPadding: 5px;
+            $lineHeight: $fontSize +$vertPadding * 2;
+
+            position: relative;
+            margin-left: 200px;
+            padding: $vertPadding 15px;
+            font-size: $fontSize;
+            line-height: 1;
+            color: transparent;
+            border: none;
+            text-transform: uppercase;
+            background: transparent;
+            cursor: pointer;
+            text-align: center;
+            outline: none;
+
+            span {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                perspective: 1000px;
+                transform-style: preserve-3d;
+                transition: transform $hoverAT;
+                transform-origin: 50% 0;
+                line-height: $lineHeight;
+                color: $color-white;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 2px solid $color-white;
+                    border-top: none;
+                    border-bottom: none;
+                }
+
+                &:after {
+                    content: attr(data-text);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    line-height: $lineHeight;
+                    background: $color-dark;
+                    opacity: 0;
+                    transform-origin: 50% 0;
+                    transform: translateY(100%) rotateX(-90deg);
+                    transition: opacity $hoverAT/2 $hoverAT/2;
+                }
+            }
+
+            &:hover span {
+                transform: rotateX(90deg);
+
+                &:after {
+                    opacity: 1;
+                    transition: opacity $hoverAT/2;
+                }
+            }
+        }
+    }
+
+    &-nav {
+        z-index: 5;
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .fac-nav-btns {
+            display: flex;
+            align-items: center;
+        }
+
+        .fac-nav-scroll-btn {
+            cursor: pointer !important;
+
+            svg {
+                width: 30px;
+                height: 30px;
+                fill: $color-white;
+                transition: all 0.3s ease-in-out;
+            }
+
+            span {
+                font-size: 14px;
+                color: $color-white !important;
+                padding: 0.25rem !important;
+            }
+        }
+
+        &_bgs {
+            z-index: -1;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        &_bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            &.m-nav-bg-before {
+                z-index: 2 !important;
+                transform: translateX(100%);
+            }
+
+            &.m-active-nav-bg {
+                z-index: 1;
+                transition: transform 1s 1s / 3 * 2;
+                transform: translateX(0);
+            }
+        }
+
+        &_controls {
+            font-size: 0;
+        }
+
+        &_control {
+            $controlWidth: 40px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: $controlWidth;
+            font-size: 14px;
+            color: $color-white;
+            text-transform: uppercase;
+            background: transparent;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 1s/2;
+            background-color: rgba($color-white, 0.25);
+            height: 3px;
+            border: none;
+            padding: 0.2rem;
+            border-radius: 10px;
+            margin: auto 0.5rem;
+
+            &.m-active-control {
+                padding: 0.2rem;
+                border-radius: 10px;
+            }
+
+            &-progress {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 3px;
+                background: $color-white;
+                transform-origin: 0 50%;
+                transform: scaleX(0);
+                transition-timing-function: linear !important;
+                padding: 0.25rem;
+
+                .m-with-autosliding .m-active-control & {
+                    transform: scaleX(1);
+                }
+
+                .m-prev-control & {
+                    transform: translateX(100%);
+                    transition: transform 0.5s !important;
+                }
+
+                .m-reset-progress & {
+                    transform: scaleX(0);
+                    transition: transform 0s 0s !important;
+                }
+
+                .m-autosliding-blocked & {
+                    transition: all 0s 0s !important;
+                    transform: scaleX(0) !important;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        &-nav {
+            display: grid !important;
+            justify-content: center;
+
+            .fac-nav-scroll {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                order: 1;
+            }
+
+            .fac-nav-btns {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                order: 0;
+                margin: 1.5rem auto;
+            }
+        }
+    }
+}
+
+/* NOT PART OF COMMON SLIDER STYLES */
+$font: "Open Sans", Helvetica, Arial, sans-serif;
+$creditsAT: 0.7s;
+$creditsWidth: 400px;
+
+body {
+    margin: 0;
+}
+
+.demo-cont {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    perspective: 1500px;
+    background: #000;
+
+    &_credits {
+        box-sizing: border-box;
+        overflow-y: auto;
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: $creditsWidth;
+        height: 100%;
+        padding: 20px 10px 30px;
+        background: $color-dark;
+        font-family: $font;
+        color: $color-white;
+        text-align: center;
+        transition: transform $creditsAT;
+        transform: translate3d(100%, 0, 0) rotateY(-45deg);
+        will-change: transform;
+
+        .credits-active & {
+            transition: transform $creditsAT $creditsAT/3;
+            transform: translate3d(0, 0, 0);
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        &-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 2px;
+                margin-top: -1px;
+                background: $color-white;
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        &-heading {
+            text-transform: uppercase;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        &-img {
+            display: block;
+            width: 60%;
+            margin: 0 auto 30px;
+            border-radius: 10px;
+        }
+
+        &-name {
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        &-link {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: $color-white;
+        }
+
+        &-blend {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.example-slider {
+    z-index: 2;
+    transform: translate3d(0, 0, 0);
+    transition: transform $creditsAT;
+
+    .credits-active & {
+        transform: translate3d($creditsWidth * -1, 0, 0) rotateY(10deg) scale(0.9);
+    }
+
+    .slid-slide {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($color-dark, 0.6);
+        }
+    }
+
+    .slid-slide_heading,
+    .slid-slide_des,
+    .slid-slide_action-btn,
+    .slid-nav_control {
+        font-family: $font;
+    }
+}
+
+/* COLORFUL SWITCH STYLES 
+       ORIGINAL DEMO - https://codepen.io/suez/pen/WQjwOb */
+$w: 180px;
+$_baseW: 280;
+$h: $w * 120 / $_baseW;
+$br: $w * 50 / $_baseW;
+$outerOffset: 5px;
+$animTime: 0.5s;
+$dotS: $w * 8 / $_baseW;
+$dotLeft: $w * 204 / $_baseW;
+$dotLeftOffset: $w * -125 / $_baseW;
+$offS: $w * 64 / $_baseW;
+$onLeft: $w * 162 / $_baseW;
+$onTop: $w * 35 / $_baseW;
+$onWidth: $w * 30 / $_baseW;
+$onHeight: $w * 56 / $_baseW;
+$cubIn: cubic-bezier(0.52, -0.96, 0.51, 1.28);
+$cubOut: cubic-bezier(0.67, -0.16, 0.47, 1.61);
+
+@mixin switchOn() {
+    .colorful-switch_checkbox:checked~.colorful-switch_label & {
+        @content;
+    }
+}
+
+.colorful-switch {
+    position: relative;
+    width: $w;
+    height: $h;
+    margin: 0 auto;
+    border-radius: $br;
+    background: $color-gray-1;
+
+    &:before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        left: -$outerOffset;
+        top: -$outerOffset;
+        width: $w + $outerOffset * 2;
+        height: $h + $outerOffset * 2;
+        border-radius: $br + $outerOffset;
+        transition: background-color 0.3s;
+    }
+
+    &_checkbox {
+        z-index: -10;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    &_label {
+        z-index: 1;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: $br;
+        cursor: pointer;
+    }
+
+    &_bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: $w * 3;
+        height: 100%;
+        transition: transform $animTime;
+        transform: translate3d($w * -2, 0, 0);
+
+        @include switchOn {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &_dot {
+        position: absolute;
+        left: $dotLeft;
+        top: 50%;
+        width: $dotS;
+        height: $dotS;
+        margin-left: $dotS/-2;
+        margin-top: $dotS/-2;
+        border-radius: 50%;
+        background: $color-white;
+        transition: transform $animTime;
+        transform: translate3d(0, 0, 0);
+
+        @include switchOn {
+            transform: translate3d($dotLeftOffset, 0, 0);
+        }
+    }
+
+    &_on {
+        position: absolute;
+        left: $onLeft;
+        top: $onTop;
+        width: $onWidth;
+        height: $onHeight;
+        transition: transform $animTime;
+        transform: translate3d(0, 0, 0);
+
+        @include switchOn {
+            transform: translate3d($dotLeftOffset, 0, 0);
+        }
+
+        &_inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform $animTime/2 0s $cubIn;
+            transform-origin: 100% 50%;
+            transform: rotate(45deg) scale(0) translateZ(0);
+
+            @include switchOn {
+                transition: transform $animTime/2 $animTime/2 $cubOut;
+                transform: rotate(45deg) scale(1) translateZ(0);
+            }
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                border-radius: $dotS/2;
+                background: $color-white;
+            }
+
+            &:before {
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: $dotS + 1px;
+            }
+
+            &:after {
+                right: 0;
+                top: 0;
+                width: $dotS + 1px;
+                height: 100%;
+            }
+        }
+    }
+
+    &_off {
+        position: absolute;
+        left: $dotLeft;
+        top: 50%;
+        width: $offS;
+        height: $offS;
+        margin-left: $offS/-2;
+        margin-top: $offS/-2;
+        transition: transform $animTime;
+        transform: translate3d(0, 0, 0);
+
+        @include switchOn {
+            transform: translate3d($dotLeftOffset, 0, 0);
+        }
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: $dotS;
+            margin-top: $dotS/-2;
+            border-radius: $dotS/2;
+            background: $color-white;
+            transition: transform $animTime/2 $animTime/2;
+
+            @include switchOn {
+                transition-delay: 0s;
+            }
+        }
+
+        &:before {
+            transform: rotate(45deg) scaleX(1) translateZ(0);
+
+            @include switchOn {
+                transform: rotate(45deg) scaleX(0) translateZ(0);
+            }
+        }
+
+        &:after {
+            transition-timing-function: $cubOut;
+            transform: rotate(-45deg) scaleX(1) translateZ(0);
+
+            @include switchOn {
+                transition-timing-function: ease;
+                transform: rotate(-45deg) scaleX(0) translateZ(0);
+            }
+        }
+    }
+}

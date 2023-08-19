@@ -1,0 +1,32 @@
+/**********************
+========Config=========
+**********************/
+@import "config/var";
+@import "config/custom-bootstrap";
+
+/**********************
+========Global=========
+**********************/
+@import "global/global";
+
+/**********************
+=====Components=======
+**********************/
+@import "components/carousel";
+@import "components/header";
+@import "components/CardMovie";
+@import "components/cardActor";
+@import "components/slider";
+@import "components/likeButton";
+@import "components/footer";
+@import "components/servicesTowMember";
+@import "components/navigation";
+@import "components/movieInfo";
+@import "components/autrhantication";
+
+
+/**********************
+========Pages=========
+**********************/
+@import "pages/search";
+@import "pages/trending";

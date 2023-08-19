@@ -1,0 +1,1112 @@
+//
+// services
+//
+
+.servicesTow {
+    &-yellowImgE {
+        :hover {
+            .servicesTow-yellowImg {
+                .circle {
+                    rotate: -180deg;
+                }
+
+                .tringel1 {
+                    top: 251px;
+                    left: 56px;
+                    rotate: -229deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 181px;
+                    }
+                }
+
+                .tringel2 {
+                    top: 181px;
+                    left: 56px;
+                    rotate: -179deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 151px;
+                    }
+                }
+
+                .tringel3 {
+                    top: 118px;
+                    left: 87px;
+                    rotate: -135deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 88px;
+                    }
+                }
+
+                .tringel4 {
+                    top: 90px;
+                    left: 158px;
+                    rotate: -90deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 60px;
+                    }
+                }
+
+                .tringel5 {
+                    top: 118px;
+                    left: 232px;
+                    rotate: -45deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 88px;
+                    }
+                }
+
+                .tringel6 {
+                    top: 181px;
+                    left: 263px;
+                    rotate: 0deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 151px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-yellowImg {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin-left: 0px;
+
+        @media only screen and (max-width: 768px) {
+            margin-left: 85px;
+        }
+
+        .circle {
+            position: absolute;
+            transition: all 0.5s ease-in-out;
+            top: 140px;
+            left: 104px;
+            height: 150px;
+            width: 150px;
+            border-radius: 9999px;
+            background: linear-gradient(rgb(241, 163, 18), rgb(255, 251, 0));
+
+            @media only screen and (max-width: 768px) {
+                top: 110px;
+            }
+        }
+
+        .tringel1 {
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 40px solid rgb(235, 216, 95);
+            border-bottom: 20px solid transparent;
+            top: 181px;
+            left: 56px;
+            rotate: -179deg;
+
+            @media only screen and (max-width: 768px) {
+                top: 151px;
+            }
+        }
+
+        .tringel2 {
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 40px solid rgb(235, 216, 95);
+            border-bottom: 20px solid transparent;
+            top: 118px;
+            left: 87px;
+            rotate: -135deg;
+
+            @media only screen and (max-width: 768px) {
+                top: 88px;
+            }
+        }
+
+        .tringel3 {
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 40px solid rgb(235, 216, 95);
+            border-bottom: 20px solid transparent;
+            top: 90px;
+            left: 158px;
+            rotate: -90deg;
+
+            @media only screen and (max-width: 768px) {
+                top: 60px;
+            }
+        }
+
+        .tringel4 {
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 40px solid rgb(235, 216, 95);
+            border-bottom: 20px solid transparent;
+            top: 118px;
+            left: 232px;
+            rotate: -45deg;
+
+            @media only screen and (max-width: 768px) {
+                top: 88px;
+            }
+        }
+
+        .tringel5 {
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 40px solid rgb(235, 216, 95);
+            border-bottom: 20px solid transparent;
+            top: 181px;
+            left: 263px;
+            rotate: 0deg;
+
+            @media only screen and (max-width: 768px) {
+                top: 151px;
+            }
+        }
+
+        .tringel6 {
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 40px solid rgb(235, 216, 95);
+            border-bottom: 20px solid transparent;
+            top: 280px;
+            left: 251px;
+            rotate: 45deg;
+
+            @media only screen and (max-width: 768px) {
+                top: 270px;
+            }
+        }
+    }
+
+    &-purpelImg {
+        .pt {
+            padding-top: 70px;
+
+            @media only screen and (max-width: 768px) {
+                padding-top: 0px;
+            }
+        }
+
+        height: 435px;
+
+        @media only screen and (max-width: 768px) {
+            height: 300px;
+        }
+
+        :hover {
+            .cube {
+                rotate: 90deg;
+            }
+        }
+
+        .cubeContainer {
+            width: 200px;
+            height: 200px;
+            perspective: 500px;
+        }
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .face {
+            width: 200px;
+            height: 200px;
+            background: #fab6ff;
+            border: 2px solid black;
+            position: absolute;
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 2rem;
+            transition: transform 500ms;
+        }
+
+        .front {
+            transform: translateZ(100px);
+        }
+
+        .back {
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .left {
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+
+        .right {
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        .top {
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        .bottom {
+            transform: translateY(100px) rotateX(-90deg);
+        }
+    }
+
+    &-greenEffect {
+        :hover {
+            .wave1 {
+                transform: translate(70px, 0px);
+            }
+
+            .wave2 {
+                transform: translate(70px, 0px);
+            }
+
+            .wave3 {
+                transform: translate(70px, 0px);
+            }
+
+            .rectangle {
+                transform: translate(0, 0px);
+            }
+        }
+    }
+
+    &-companyGreenImg {
+        position: relative;
+        padding-top: 29px;
+
+        .wave1 {
+            position: absolute;
+            width: 180px;
+            height: 80px;
+            background: #97f479;
+            border-radius: 50%;
+            left: -75px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .wave2 {
+            position: absolute;
+            width: 250px;
+            height: 120px;
+            background: #97f479;
+            border-radius: 50%;
+            left: 50px;
+            top: 20px;
+            transition: all 0.5s ease-in-out;
+
+            @media only screen and (max-width: 768px) {
+                width: 425px;
+            }
+        }
+
+        .wave3 {
+            position: absolute;
+            width: 180px;
+            height: 80px;
+            background: #97f479;
+            border-radius: 50%;
+            right: -75px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .rectangle {
+            position: absolute;
+            width: 100%;
+            height: 180px;
+            background: #97f479;
+
+            top: 80px;
+            left: 0;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
+    &-orangeCompany {
+        :hover {
+            .ring {
+                rotate: 360deg;
+            }
+
+            .ring2 {
+                rotate: -360deg;
+            }
+
+            .ring3 {
+                rotate: 360deg;
+            }
+        }
+    }
+
+    &-relative {
+        position: relative;
+    }
+
+    &-memberGreen {
+        .rectangle-1 {
+            height: 40px;
+            width: 770px;
+
+            background: linear-gradient(-225deg,
+                    rgb(68, 221, 7) 50%,
+                    rgb(14, 129, 1) 60%);
+
+            left: -20px;
+            top: 50px;
+
+            @media only screen and (max-width: 768px) {
+                top: 65px;
+            }
+        }
+
+        .rectangle-2 {
+            height: 435px;
+            width: 40px;
+            background: linear-gradient(130deg,
+                    rgb(68, 221, 7) 40%,
+                    rgb(14, 129, 1) 60%);
+            right: 80px;
+            top: -266px;
+
+            @media only screen and (max-width: 768px) {
+                right: 55px;
+            }
+        }
+    }
+
+    &-phoneMt {
+        @media only screen and (max-width: 768px) {
+            margin-top: 200px;
+        }
+    }
+
+    &-mtPhone {
+        margin-top: 0px;
+
+        @media only screen and (max-width: 768px) {
+            margin-top: 24px;
+        }
+    }
+
+    &-orangeMemberImgE {
+        :hover {
+            .Img {
+                .circle {
+                    scale: 0.5;
+                    top: -26px;
+                    z-index: 1;
+                    rotate: 90deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 13px;
+                    }
+                }
+
+                .tringel {
+                    scale: 1;
+                    z-index: 0;
+                }
+
+                .circle2 {
+                    scale: 0.6;
+                    top: 323px;
+                    z-index: 1;
+                    rotate: 90deg;
+
+                    @media only screen and (max-width: 768px) {
+                        top: 213px;
+                    }
+                }
+
+                .tringel2 {
+                    scale: 1.2;
+                    z-index: 0;
+                }
+            }
+        }
+    }
+
+    &-horizontalCard-LightOrange {
+        height: 435px;
+        padding-top: 159px;
+
+        @media only screen and (max-width: 768px) {
+            height: 300px;
+            padding-top: 79px;
+        }
+
+        .ring {
+            position: absolute;
+            top: -285px;
+            right: -90px;
+            height: 300px;
+            width: 300px;
+            transition: all 2s ease-in-out;
+            z-index: 2;
+            background-color: transparent;
+            border: double 25px transparent;
+            border-radius: 9999px;
+            background-image: linear-gradient(rgb(250, 229, 209), rgb(250, 229, 209)),
+                radial-gradient(circle at top left, rgb(235, 216, 95), #ff8800);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .ring2 {
+            position: absolute;
+            top: -285px;
+            right: -90px;
+            height: 350px;
+            width: 350px;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            background-color: transparent;
+            border: double 25px transparent;
+            border-radius: 9999px;
+            background-image: linear-gradient(rgb(250, 229, 209), rgb(250, 229, 209)),
+                radial-gradient(circle at top left, rgb(235, 216, 95), #ff8800);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .ring3 {
+            position: absolute;
+            bottom: -354px;
+            right: -90px;
+            height: 300px;
+            width: 300px;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            background-color: transparent;
+            border: double 25px transparent;
+            border-radius: 9999px;
+            background-image: linear-gradient(rgb(250, 229, 209), rgb(250, 229, 209)),
+                radial-gradient(circle at top left, rgb(235, 216, 95), #ff8800);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+    }
+
+    &-horizontalCard-orange {
+        height: 435px;
+        padding-top: 70px;
+
+        .pt {
+            padding-top: 100px;
+        }
+
+        .Img {
+            position: relative;
+
+            .circle {
+                position: absolute;
+                transition: all 0.5s ease-in-out;
+                top: -36px;
+                left: 13px;
+                height: 150px;
+                width: 150px;
+                border-radius: 9999px;
+                scale: 0.8;
+                background: linear-gradient(rgb(241, 137, 18), rgb(255, 213, 0));
+                opacity: 0.7;
+
+                @media only screen and (max-width: 768px) {
+                    left: 370px;
+                    top: 5px;
+                }
+            }
+
+            .tringel {
+                position: absolute;
+                transition: all 0.5s ease-in-out;
+                width: 0;
+                height: 0;
+                border-top: 60px solid transparent;
+                border-left: 120px solid rgb(255, 238, 0);
+                border-bottom: 60px solid transparent;
+                opacity: 0.7;
+                top: -33px;
+                left: 28px;
+                rotate: -90deg;
+                scale: 0.8;
+                z-index: 1;
+
+                @media only screen and (max-width: 768px) {
+                    left: 385px;
+                    top: 5px;
+                }
+            }
+
+            .circle2 {
+                position: absolute;
+                opacity: 0.7;
+                transition: all 0.5s ease-in-out;
+                top: 313px;
+                right: 13px;
+                height: 150px;
+                width: 150px;
+                border-radius: 9999px;
+                background: linear-gradient(rgb(241, 137, 18), rgb(255, 213, 0));
+
+                @media only screen and (max-width: 768px) {
+                    right: 300px;
+                    top: 200px;
+                }
+            }
+
+            .tringel2 {
+                position: absolute;
+                transition: all 0.5s ease-in-out;
+                opacity: 0.7;
+                width: 0;
+                height: 0;
+                border-top: 60px solid transparent;
+                border-left: 120px solid rgb(255, 238, 0);
+                border-bottom: 60px solid transparent;
+                top: 314px;
+                right: 28px;
+                rotate: -90deg;
+                z-index: 1;
+
+                @media only screen and (max-width: 768px) {
+                    right: 315px;
+                    top: 200px;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            padding-top: 40px;
+            height: 300px;
+        }
+
+        &-member {
+            height: 420px;
+            padding-top: 40px;
+
+            @media only screen and (max-width: 768px) {
+                padding-top: 0px;
+                height: 300px;
+            }
+
+            h2 {
+                margin-top: 80px;
+
+                @media only screen and (max-width: 768px) {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+
+    &-horizontalCard {
+        height: 100%;
+        padding-top: 94px;
+
+        @media only screen and (max-width: 768px) {
+            padding-top: 0px;
+        }
+    }
+
+    &-horizontalCard-purpel {
+        height: 100%;
+        padding-top: 20px;
+
+        .h2 {
+            padding-top: 30px;
+
+            @media only screen and (max-width: 768px) {
+                padding-top: 0px;
+            }
+        }
+
+        :hover {
+            .trringel {
+                transform: translate(10px, 0);
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            padding-top: 0px;
+        }
+
+        .circle {
+            position: relative;
+            top: 50px;
+            left: 30px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: #c26ed592;
+        }
+
+        .circle::before {
+            content: "";
+            position: absolute;
+            rotate: 135deg;
+            width: 70%;
+            height: 60%;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            background-color: #e7e0eb;
+        }
+
+        .trringel {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 91px solid transparent;
+            border-left: 152px solid #9d36b4;
+            border-bottom: 90px solid transparent;
+            top: 48px;
+            right: 162px;
+            rotate: 45deg;
+            transition: ease-in-out 0.5s;
+
+            @media only screen and (max-width: 768px) {
+                right: 50px;
+            }
+        }
+    }
+
+    &-horizontalCard-light {
+        height: 435px;
+        padding-top: 135px;
+
+        @media only screen and (max-width: 768px) {
+            padding-top: 40px;
+            height: 300px;
+        }
+
+        :hover {
+            .circell {
+                @keyframes diagonal-move {
+                    0% {
+                        transform: translate(0, 0);
+                    }
+
+                    10% {
+                        transform: translate(0, 20px);
+                    }
+
+                    50% {
+                        transform: translate(-150px, 130px);
+                    }
+
+                    100% {
+                        transform: translate(-170px, 170px);
+                    }
+                }
+
+                position: relative;
+                animation: diagonal-move 2s linear;
+                transform: translate(-170px, 170px);
+            }
+        }
+
+        .trringel {
+            width: 0;
+            height: 0;
+            border-top: 150px solid transparent;
+            border-right: 200px solid #828282;
+            top: 4px;
+            right: -18px;
+
+            @media only screen and (max-width: 768px) {
+                top: 10px;
+                right: -25px;
+            }
+        }
+
+        .circell {
+            width: 30px;
+            top: -154px;
+            left: 288px;
+            height: 30px;
+            border-radius: 9999px;
+            background-color: #cecece;
+            transition: all 0.5s ease-in-out;
+
+            @media only screen and (max-width: 768px) {
+                top: -3px;
+                left: -42px;
+            }
+        }
+
+        .text {
+            margin-top: 80px;
+
+            @media only screen and (max-width: 768px) {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    &-horizontalCard-green {
+        height: 100%;
+        padding-top: 0px;
+
+        .h2 {
+            margin-top: 162px;
+
+            @media (max-width: 768px) {
+                margin-top: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            padding-top: 0px;
+        }
+    }
+
+    &-continer {
+        height: 435px;
+        margin-bottom: 24px;
+
+        @media only screen and (max-width: 768px) {
+            height: 300px;
+        }
+    }
+
+    &-continer-orang-member {
+        height: 435px;
+        margin-bottom: 24px;
+        padding-bottom: 24;
+
+        @media only screen and (max-width: 768px) {
+            height: 300px;
+            margin-top: 0px;
+        }
+    }
+
+    &-overflow {
+        overflow: hidden;
+    }
+
+    &-color {
+        &-purpel {
+            background-color: #e7e0eb;
+        }
+
+        &-orange {
+            background-color: #fae5d1;
+        }
+    }
+
+    &-bp {
+        padding-bottom: 12.95rem;
+    }
+
+    &-ImgEeffect {
+        overflow: hidden;
+
+        .ImgT {
+            transition: all 0.5s ease-in-out;
+        }
+
+        .ImgL {
+            transition: all 0.5s ease-in-out;
+        }
+
+        &:hover {
+            .ImgT {
+                transition: all 0.5s ease-in-out;
+                transform: translateY(25px);
+            }
+
+            .ImgL {
+                transition: all 0.5s ease-in-out;
+                translate: 25px;
+            }
+        }
+    }
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &-button-continer {
+        margin-top: -2.5rem;
+
+        @media only screen and (max-width: 768px) {
+            margin-top: 2.5rem;
+        }
+
+        transition: 0.5s all ease-in-out;
+
+        &:hover {
+            scale: 1.1;
+            filter: blur(0.1px);
+
+            @media only screen and (max-width: 768px) {
+                scale: 1;
+            }
+        }
+
+        .button {
+            // background-color: $color-light;
+            background-color: transparent;
+            height: 40px;
+            border: 0px;
+            border-radius: 9999px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .buttona {
+            background-color: transparent;
+            height: 40px;
+            border: 0px;
+            border-radius: 9999px;
+            transition: all 0.5s ease-in-out;
+            color: $color-white;
+        }
+
+        .button-active {
+            left: 10px;
+            width: 47%;
+            height: 40px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .button-active2 {
+            left: 10px;
+            width: 47%;
+            height: 40px;
+            translate: 100%;
+            transition: all 0.5s ease-in-out;
+
+            @media only screen and (max-width: 768px) {
+                translate: 103%;
+            }
+        }
+    }
+
+    &-rounded-full {
+        border-radius: 9999px;
+    }
+
+    @each $name,
+    $value in $colors {
+        &.service-#{$name} {
+            overflow: hidden;
+
+            .icons {
+                margin: auto;
+                width: 90px;
+                height: 90px;
+                position: absolute;
+                padding: 0 !important;
+                transition: 0.5s all ease-in-out;
+                border-radius: 50%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: $color-white;
+
+                svg {
+                    margin-top: 25px;
+                    transition: 0.5s all ease-in-out;
+                }
+            }
+
+            &:hover {
+                .content {
+                    z-index: 99;
+                }
+
+                .icons {
+                    width: 100% !important;
+                    height: 100% !important;
+                    border-radius: 0 !important;
+                    transform: translateY(-24px) !important;
+
+                    i {
+                        scale: 1.25;
+                    }
+                }
+
+                .title {
+                    color: $color-white !important;
+                }
+
+                p {
+                    color: $color-gray-1 !important;
+                }
+            }
+
+            .content {
+                margin-top: 7rem !important;
+            }
+        }
+    }
+}
+
+.services {
+    transition: all 0.5s ease;
+
+    .title {
+        transition: all 0.5s ease;
+    }
+
+    .icons {
+        i {
+            height: 90px;
+            width: 90px;
+        }
+    }
+}
+
+//Timeline
+.timeline-page {
+    &:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: -1px;
+        top: 0px;
+        width: 1px;
+        height: 100%;
+        margin: auto;
+        border-right: 2px dashed $color-gray-1 !important;
+    }
+
+    .timeline-item {
+
+        .date-label-left,
+        .duration-right {
+
+            &:after,
+            &:before {
+                position: absolute;
+                content: "";
+                border-radius: 50%;
+                z-index: 1;
+            }
+
+            &:after {
+                top: 9px;
+                width: 10px;
+                height: 10px;
+                background-color: $color-primary;
+            }
+
+            &:before {
+                border: 2px dashed $color-gray-1;
+                top: 0;
+                width: 28px;
+                height: 28px;
+                background-color: $color-white;
+            }
+        }
+
+        .date-label-left {
+            float: right;
+            margin-right: 24px;
+
+            &:after {
+                right: -41px;
+            }
+
+            &:before {
+                right: -50px;
+            }
+        }
+
+        .duration-right {
+            float: left;
+            margin-left: 24px;
+
+            &:after {
+                left: -41px;
+            }
+
+            &:before {
+                left: -50px;
+            }
+        }
+
+        .event {
+            transition: all 0.2s ease;
+
+            .title {
+                font-weight: 500;
+                transition: all 0.2s ease;
+            }
+
+            &.event-description-right {
+                text-align: left;
+                margin-left: 24px;
+            }
+
+            &.event-description-left {
+                text-align: right;
+                margin-right: 24px;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .timeline-page {
+        margin-left: 18px;
+
+        &:after {
+            margin: 0;
+        }
+
+        .timeline-item {
+            .duration {
+                float: left !important;
+                margin-left: 30px !important;
+                margin-right: auto !important;
+                text-align: left !important;
+
+                &:after {
+                    left: -34px !important;
+                }
+
+                &:before {
+                    left: -42px !important;
+                }
+
+                .event {
+                    text-align: left !important;
+                    margin-left: 15px;
+                }
+            }
+
+            .event {
+
+                &.event-description-left,
+                &.event-description-right {
+                    text-align: left !important;
+                    margin: 0 0 0 30px !important;
+                }
+            }
+        }
+    }
+}

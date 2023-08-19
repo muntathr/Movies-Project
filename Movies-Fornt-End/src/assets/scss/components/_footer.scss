@@ -1,0 +1,85 @@
+//
+// footer
+//
+footer {
+    position: relative;
+    color: $color-gray-1;
+    background-color: $color-dark;
+    overflow: hidden;
+
+    img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .footer-py-30 {
+        padding: 30px 0;
+    }
+
+    .text-foot {
+        color: $color-gray-1;
+    }
+}
+
+
+//Social icons
+.social-icon {
+    display: flex;
+    justify-content: end;
+
+    li {
+        a {
+            color: $color-dark;
+            border: 1px solid rgba($color-light, .75);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 32px;
+            width: 32px;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+            border-radius: 30px;
+
+            .feather-icon {
+                stroke-width: 1.8;
+                height: 16px;
+                width: 16px;
+            }
+
+            &:hover {
+                background: linear-gradient(45deg, $color-dark, rgba($color-dark, .75)) !important;
+                color: $color-white !important;
+
+                // border: 0 !important;
+                .feather-icon {
+                    fill: $color-primary;
+                }
+            }
+        }
+    }
+
+    &.social {
+        li {
+            a {
+                color: $color-gray-1;
+                border-color: $color-gray-1;
+            }
+        }
+    }
+
+    &.line-icon {
+        li {
+            a {
+                color: $color-gray-1;
+                border-color: rgba($color-light, .75);
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .social-icon {
+        justify-content: center !important;
+    }
+}
