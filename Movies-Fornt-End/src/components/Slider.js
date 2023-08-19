@@ -204,7 +204,7 @@ export const Slider = ({ data }) => {
                                             </div>
                                         </p>
                                         <Link
-                                            to={`/blog-details/?id=${slide.name}&slider=true`}
+                                            to={`/movie?media_type=${slide.media_type}&id=${slide.id}`}
                                             className="slid-slide_heading-btn"
                                         >
                                             Read More
