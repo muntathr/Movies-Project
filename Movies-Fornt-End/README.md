@@ -1,16 +1,9 @@
 # Movie Front End React Js
 
-<table>
-<tr>
-<td>
-  Movie App built in React JS and Material UI.
-</td>
-</tr>
-</table>
-
 ## Getting Started
 
 Follow these steps to set up and run the project on your local machine.
+https://www.youtube.com/embed/0ERorfdjw-w
 
 ### Prerequisites
 
